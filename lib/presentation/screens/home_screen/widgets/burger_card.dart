@@ -49,7 +49,7 @@ class BurgerCard extends StatelessWidget {
               const Flexible(
                 flex: 3,
                 child: Image(
-                  image: AssetImage("assets/images/burger.png"),
+                  image: AssetImage("assets/images/moods/burger.webp"),
                   height: 150,
                   fit: BoxFit.cover,
                 ),

@@ -13,35 +13,35 @@ class RestaurantStore extends GetxController {
   final _random = Random();
 
   final List<String> _restaurantImages = [
-    "assets/images/restaurents/restaurent1.png",
-    "assets/images/restaurents/restaurent2.png",
-    "assets/images/restaurents/restaurent3.png",
-    "assets/images/restaurents/restaurent4.png",
-    "assets/images/restaurents/restaurent5.png",
-    "assets/images/restaurents/restaurent6.png",
+    "assets/images/restaurents/restaurent1.webp",
+    "assets/images/restaurents/restaurent2.webp",
+    "assets/images/restaurents/restaurent3.webp",
+    "assets/images/restaurents/restaurent4.webp",
+    "assets/images/restaurents/restaurent5.webp",
+    "assets/images/restaurents/restaurent6.webp",
   ];
 
   final List<String> _menuImages = [
-    "assets/images/menus/menu1.jpg",
-    "assets/images/menus/menu2.jpg",
-    "assets/images/menus/menu3.jpg",
+    "assets/images/menus/menu1.webp",
+    "assets/images/menus/menu2.webp",
+    "assets/images/menus/menu3.webp",
   ];
 
   final List<String> _dishImages = [
-    "assets/images/dishes/dish1.png",
-    "assets/images/dishes/dish2.png",
-    "assets/images/dishes/dish3.png",
-    "assets/images/dishes/dish4.png",
-    "assets/images/dishes/dish5.png",
-    "assets/images/dishes/dish6.png",
+    "assets/images/dishes/dish1.webp",
+    "assets/images/dishes/dish2.webp",
+    "assets/images/dishes/dish3.webp",
+    "assets/images/dishes/dish4.webp",
+    "assets/images/dishes/dish5.webp",
+    "assets/images/dishes/dish6.webp",
   ];
 
   final List<String> _reviewerImages = [
-    "assets/images/users/user1.png",
-    "assets/images/users/user2.png",
-    "assets/images/users/user3.png",
-    "assets/images/users/user4.png",
-    "assets/images/users/user5.png",
+    "assets/images/users/user1.webp",
+    "assets/images/users/user2.webp",
+    "assets/images/users/user3.webp",
+    "assets/images/users/user4.webp",
+    "assets/images/users/user5.webp",
   ];
 
   final List<String> _reviewerNames = [
