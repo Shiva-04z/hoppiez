@@ -1,30 +1,6 @@
-enum Facility {
-  rooftop,
-  petAllowed,
-  valetParking,
-  takeAway,
-  barsAndPubs,
-  dineIn,
-  buffet
-}
+class Facility {
+  final String id;
+  final String name;
 
-extension FacilityExtension on Facility {
-  String get label {
-    switch (this) {
-      case Facility.rooftop:
-        return "Rooftop";
-      case Facility.petAllowed:
-        return "Pet Allowed";
-      case Facility.valetParking:
-        return "Valet Parking";
-      case Facility.takeAway:
-        return "Take Away";
-      case Facility.barsAndPubs:
-        return "Bars & Pubs";
-        case Facility.dineIn:
-        return "Dine In";
-      case Facility.buffet:
-        return "Buffet";
-    }
-  }
+  const Facility({required this.id, required this.name});
 }

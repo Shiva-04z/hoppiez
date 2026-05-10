@@ -6,7 +6,7 @@ class MoodCategory {
   final String? image2;
   final Color splash;
 
-  MoodCategory({
+ const MoodCategory({
     required this.name,
     required this.image1,
     this.image2,

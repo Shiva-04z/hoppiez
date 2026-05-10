@@ -16,6 +16,7 @@ class $AssetsIconsGen {
   final SvgGenImage decoration = const SvgGenImage(
     'assets/icons/decoration.svg',
   );
+  final SvgGenImage filter = const SvgGenImage('assets/icons/filter.svg');
   final SvgGenImage location = const SvgGenImage('assets/icons/location.svg');
   final SvgGenImage mapPin = const SvgGenImage('assets/icons/map_pin.svg');
   final SvgGenImage search = const SvgGenImage('assets/icons/search.svg');
@@ -25,6 +26,9 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  final $AssetsDishesGen dishes = const $AssetsDishesGen();
+  final $AssetsMenusGen menus = const $AssetsMenusGen();
+  final $AssetsRestaurentsGen restaurents = const $AssetsRestaurentsGen();
   final AssetGenImage burger = const AssetGenImage('assets/images/burger.png');
   final AssetGenImage champagne = const AssetGenImage(
     'assets/images/champagne.png',
@@ -33,6 +37,69 @@ class $AssetsImagesGen {
   final AssetGenImage pizza = const AssetGenImage('assets/images/pizza.png');
   final AssetGenImage pizza2 = const AssetGenImage('assets/images/pizza2.png');
   final AssetGenImage south = const AssetGenImage('assets/images/south.png');
+}
+
+class $AssetsMenusGen {
+  const $AssetsMenusGen();
+
+  final AssetGenImage menu1 = const AssetGenImage(
+    'assets/images/menus/menu1.png',
+  );
+  final AssetGenImage menu2 = const AssetGenImage(
+    'assets/images/menus/menu2.png',
+  );
+  final AssetGenImage menu3 = const AssetGenImage(
+    'assets/images/menus/menu3.png',
+  );
+  final AssetGenImage menu4 = const AssetGenImage(
+    'assets/images/menus/menu4.png',
+  );
+}
+
+class $AssetsDishesGen {
+  const $AssetsDishesGen();
+
+  final AssetGenImage dish1 = const AssetGenImage(
+    'assets/images/dishes/dish1.png',
+  );
+  final AssetGenImage dish2 = const AssetGenImage(
+    'assets/images/dishes/dish2.png',
+  );
+  final AssetGenImage dish3 = const AssetGenImage(
+    'assets/images/dishes/dish3.png',
+  );
+  final AssetGenImage dish4 = const AssetGenImage(
+    'assets/images/dishes/dish4.png',
+  );
+  final AssetGenImage dish5 = const AssetGenImage(
+    'assets/images/dishes/dish5.png',
+  );
+  final AssetGenImage dish6 = const AssetGenImage(
+    'assets/images/dishes/dish6.png',
+  );
+}
+
+class $AssetsRestaurentsGen {
+  const $AssetsRestaurentsGen();
+
+  final AssetGenImage restaurent1 = const AssetGenImage(
+    'assets/images/restaurents/restaurent1.png',
+  );
+  final AssetGenImage restaurent2 = const AssetGenImage(
+    'assets/images/restaurents/restaurent2.png',
+  );
+  final AssetGenImage restaurent3 = const AssetGenImage(
+    'assets/images/restaurents/restaurent3.png',
+  );
+  final AssetGenImage restaurent4 = const AssetGenImage(
+    'assets/images/restaurents/restaurent4.png',
+  );
+  final AssetGenImage restaurent5 = const AssetGenImage(
+    'assets/images/restaurents/restaurent5.png',
+  );
+  final AssetGenImage restaurent6 = const AssetGenImage(
+    'assets/images/restaurents/restaurent6.png',
+  );
 }
 
 class AssetGenImage {

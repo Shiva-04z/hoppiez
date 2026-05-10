@@ -4,12 +4,13 @@ class Review {
   final String reviewerImage;
   final double rating;
   final String comment;
+  final List<String> images;
 
-  Review({
+  const Review({
     required this.id,
     required this.reviewerName,
     required this.reviewerImage,
     required this.rating,
-    required this.comment,
+    required this.comment, required this.images,
   });
 }

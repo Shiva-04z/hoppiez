@@ -1,60 +1,55 @@
+import 'package:hoppiez/data/local/models/cusine.dart';
+import 'package:hoppiez/data/local/models/facility.dart';
+import 'package:hoppiez/data/local/models/offer.dart';
 import 'package:hoppiez/data/local/models/review.dart';
-
-import 'cusine.dart';
-import 'facility.dart';
-import 'offer.dart';
 
 class Restaurant {
   final String id;
   final String name;
+  final String description;
   final String address;
-  final String number;
+  final String city;
+  final String phone;
+
   final List<double> coordinates;
+  final List<String> images;
 
-  final List<Review> reviews;
-
-  double rating;
-  final String extra;
-
-  final List<Facility> facilities;
-  final List<Cuisine> cuisines;
-  final List<Offer> offers;
   final List<String> menus;
 
-  Restaurant({
+  final List<Cuisine> cuisines;
+  final List<Facility> facilities;
+  final List<Offer> offers;
+  final List<Review> reviews;
+
+  final int averagePricePerPerson;
+
+  final bool isOpen;
+  final bool availableToday;
+  final bool isHotel;
+  final bool hasPool;
+  
+  final double rating;
+
+  const Restaurant({
     required this.id,
     required this.name,
+    required this.description,
     required this.address,
-    required this.number,
+    required this.city,
+    required this.phone,
     required this.coordinates,
-    required this.reviews,
-    required this.facilities,
-    required this.cuisines,
-    required this.offers,
+    required this.images,
     required this.menus,
-    this.extra = "",
-    this.rating = 0.0,
-  }) {
-    updateRating();
-  }
+    required this.cuisines,
+    required this.facilities,
+    required this.offers,
+    required this.reviews,
+    required this.averagePricePerPerson,
+    required this.rating,
 
-  void addReview(Review review) {
-    reviews.add(review);
-    updateRating();
-  }
-
-  void updateRating() {
-    if (reviews.isEmpty) {
-      rating = 0.0;
-      return;
-    }
-
-    double total = 0.0;
-
-    for (var review in reviews) {
-      total += review.rating;
-    }
-
-    rating = total / reviews.length;
-  }
+    this.isOpen = true,
+    this.availableToday = true,
+    this.isHotel = false,
+    this.hasPool = false,
+  });
 }
