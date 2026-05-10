@@ -6,7 +6,7 @@ class AppTheme {
   AppTheme._();
   
 static  final ThemeData appTheme = ThemeData(
-    scaffoldBackgroundColor: const Color(0xFFFFE0E0),
+    scaffoldBackgroundColor: const Color(0xFFFDF3F3),
   primaryTextTheme: GoogleFonts.poppinsTextTheme(),
   );
 }

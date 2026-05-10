@@ -7,20 +7,38 @@ class Assets {
   Assets._();
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  final SvgGenImage decoration = const SvgGenImage(
+    'assets/icons/decoration.svg',
+  );
+  final SvgGenImage location = const SvgGenImage('assets/icons/location.svg');
   final SvgGenImage mapPin = const SvgGenImage('assets/icons/map_pin.svg');
   final SvgGenImage search = const SvgGenImage('assets/icons/search.svg');
+  final SvgGenImage user = const SvgGenImage('assets/icons/user.svg');
+}
+
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  final AssetGenImage burger = const AssetGenImage('assets/images/burger.png');
+  final AssetGenImage champagne = const AssetGenImage(
+    'assets/images/champagne.png',
+  );
+  final AssetGenImage north = const AssetGenImage('assets/images/north.png');
+  final AssetGenImage pizza = const AssetGenImage('assets/images/pizza.png');
+  final AssetGenImage pizza2 = const AssetGenImage('assets/images/pizza2.png');
+  final AssetGenImage south = const AssetGenImage('assets/images/south.png');
 }
 
 class AssetGenImage {
   const AssetGenImage(this._assetName, {this.size, this.flavors = const {}});
 
   final String _assetName;
-
 
   final Size? size;
   final Set<String> flavors;
@@ -78,15 +96,8 @@ class AssetGenImage {
     );
   }
 
-  ImageProvider provider({
-    AssetBundle? bundle,
-    String? package,
-  }) {
-    return AssetImage(
-      _assetName,
-      bundle: bundle,
-      package: package,
-    );
+  ImageProvider provider({AssetBundle? bundle, String? package}) {
+    return AssetImage(_assetName, bundle: bundle, package: package);
   }
 
   Widget custom({
@@ -158,4 +169,3 @@ class SvgGenImage {
 
   String get keyName => _assetName;
 }
-
