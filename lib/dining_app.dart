@@ -11,6 +11,7 @@ class DiningApp extends StatelessWidget {
     return GetMaterialApp(
       theme:  AppTheme.appTheme,
       initialRoute: Navigation.splashScreen,
+      debugShowCheckedModeBanner: false,
       getPages: Navigation.getPages,
     );
   }

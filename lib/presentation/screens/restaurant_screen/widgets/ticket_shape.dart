@@ -49,7 +49,7 @@ class TicketShape extends StatelessWidget {
                 height: 65,
                 child: ListView.builder(
                   scrollDirection: .horizontal,
-                  itemExtent: 100,
+                  itemExtent: 140,
                   itemBuilder: (context, index) {
                     final Offer offer = controller.restaurant.offers[index];
                     return DiscountCard(

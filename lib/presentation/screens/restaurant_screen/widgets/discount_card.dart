@@ -24,6 +24,8 @@ class DiscountCard extends StatelessWidget {
             crossAxisAlignment: .start,
             children: [
               Text(
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 offer.offerTiming,
                 style: TextStyle(
                   fontSize: 12,
@@ -34,8 +36,10 @@ class DiscountCard extends StatelessWidget {
               Row(
                 children: [
                   RichText(
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     text: TextSpan(
-                      text: "${offer.offerDiscount}%",
+                      text: offer.offerDiscount,
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: .w700,
@@ -43,8 +47,11 @@ class DiscountCard extends StatelessWidget {
                       ),
                       children: [
                         TextSpan(
-                          text: "OFF",
-                          style: TextStyle(fontSize: 12, color: Color(0xFFF12535)),
+                          text: " OFF",
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Color(0xFFF12535),
+                          ),
                         ),
                       ],
                     ),

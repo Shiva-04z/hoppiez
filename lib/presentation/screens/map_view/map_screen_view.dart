@@ -41,7 +41,7 @@ class MapScreenView extends GetView<MapScreenController> {
                         if (controller.restaurant != null)
                           Marker(
                             point:controller.theMainRestaurant.value,
-                            width: 120,
+                            width: 150,
                             height: 130,
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
@@ -57,6 +57,8 @@ class MapScreenView extends GetView<MapScreenController> {
                                   ),
                                   child: Text(
                                    controller.restaurant!.name,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
                                     style: const TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
@@ -117,7 +119,7 @@ class MapScreenView extends GetView<MapScreenController> {
                           return Marker(
                             point: LatLng(lat, lng),
                             width: 100,
-                            height: 80,
+                            height: 150,
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -131,6 +133,7 @@ class MapScreenView extends GetView<MapScreenController> {
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Text(
+                                    maxLines: 2,
                                     restaurant.name,
                                     style: const TextStyle(
                                       color: Colors.white,

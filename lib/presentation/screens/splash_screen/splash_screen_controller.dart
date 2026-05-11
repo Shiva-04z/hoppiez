@@ -19,6 +19,7 @@ class SplashScreenController extends GetxController {
 
   void navigateToHome() async {
     await _initializers();
+    await Future.delayed(const Duration(seconds: 2));
     Get.offNamed(Navigation.homeScreen);
   }
 }

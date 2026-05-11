@@ -46,6 +46,8 @@ late Restaurant? restaurant;
       final lng = restaurant!.coordinates[1];
 
       theMainRestaurant.value = LatLng(lat, lng);
+    }else{
+      restaurant =null;
     }
 
     getCurrentLocation();
