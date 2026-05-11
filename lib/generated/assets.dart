@@ -99,22 +99,22 @@ class $AssetsRestaurentsGen {
   const $AssetsRestaurentsGen();
 
   final AssetGenImage restaurent1 = const AssetGenImage(
-    'assets/images/restaurents/restaurent1.webp',
+    'assets/images/restaurents/restaurant1.webp',
   );
   final AssetGenImage restaurent2 = const AssetGenImage(
-    'assets/images/restaurents/restaurent2.webp',
+    'assets/images/restaurents/restaurant2.webp',
   );
   final AssetGenImage restaurent3 = const AssetGenImage(
-    'assets/images/restaurents/restaurent3.webp',
+    'assets/images/restaurents/restaurant3.webp',
   );
   final AssetGenImage restaurent4 = const AssetGenImage(
-    'assets/images/restaurents/restaurent4.webp',
+    'assets/images/restaurents/restaurant4.webp',
   );
   final AssetGenImage restaurent5 = const AssetGenImage(
-    'assets/images/restaurents/restaurent5.webp',
+    'assets/images/restaurents/restaurant5.webp',
   );
   final AssetGenImage restaurent6 = const AssetGenImage(
-    'assets/images/restaurents/restaurent6.webp',
+    'assets/images/restaurents/restaurant6.webp',
   );
 }
 

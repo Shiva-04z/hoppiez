@@ -3,10 +3,10 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hoppiez/data/local/models/restaurant.dart';
 
-class RestaurantCard extends StatelessWidget {
+class SimilarRestaurantCard extends StatelessWidget {
   final Restaurant restaurant;
 
-  RestaurantCard({super.key, required this.restaurant});
+ SimilarRestaurantCard({super.key, required this.restaurant});
 
   final PageController _pageController = PageController();
 
@@ -21,12 +21,13 @@ class RestaurantCard extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       clipBehavior: Clip.antiAlias,
       child: SizedBox(
-        height: 375,
+        height: 150,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: .start,
           children: [
             SizedBox(
-              height: 190,
+              height:100,
               child: Stack(
                 children: [
                   PageView.builder(
@@ -46,8 +47,8 @@ class RestaurantCard extends StatelessWidget {
 
                   if (restaurant.rating >= 4)
                     Positioned(
-                      top: 12,
-                      right: 12,
+                      top: 6,
+                      right: 6,
                       child: Container(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 10,
@@ -61,29 +62,29 @@ class RestaurantCard extends StatelessWidget {
                           spacing: 3,
                           children: [
                             Text(
-                              "UP\nTO",
-                              style: GoogleFonts.inter(
-                                fontSize: 9,
-                                color: const Color(0xFFFEFEFE),
-                                fontWeight: .w700
-                              )
+                                "UP\nTO",
+                                style: GoogleFonts.inter(
+                                    fontSize: 8,
+                                    color: const Color(0xFFFEFEFE),
+                                    fontWeight: .w700
+                                )
                             ),
 
                             Text(
                                 "50",
                                 style: GoogleFonts.inter(
-                                    fontSize: 23.04,
+                                    fontSize: 10,
                                     color: const Color(0xFFFEFEFE),
                                     fontWeight: .w700
                                 )
                             ),
-                             Text(
-                                    "%\nOFF",
-                                    style: GoogleFonts.inter(
-                                        fontSize: 9,
-                                        color: const Color(0xFFFEFEFE),
-                                        fontWeight: .w700
-                                    )
+                            Text(
+                                "%\nOFF",
+                                style: GoogleFonts.inter(
+                                    fontSize: 8,
+                                    color: const Color(0xFFFEFEFE),
+                                    fontWeight: .w700
+                                )
 
                             ),
 
@@ -97,11 +98,11 @@ class RestaurantCard extends StatelessWidget {
                     left: 0,
                     right: 0,
                     child: Obx(
-                      () => Row(
+                          () => Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: List.generate(restaurant.images.length, (
-                          index,
-                        ) {
+                            index,
+                            ) {
                           final isActive = currentPage.value == index;
 
                           return AnimatedContainer(
@@ -128,25 +129,66 @@ class RestaurantCard extends StatelessWidget {
               padding: const EdgeInsets.all(14),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: .spaceEvenly,
+                spacing: 10,
                 children: [
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
+
                     children: [
                       Expanded(
                         child: Text(
                           restaurant.name,
                           style: GoogleFonts.inter(
                             color: Color(0xFF000000),
-                            fontSize: 16,
+                            fontSize: 14,
                             fontWeight: .w800,
                           ),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
+                    ],
+                  ),
 
-                      const SizedBox(width: 8),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.location_on_outlined,
+                        color: Colors.redAccent,
+                        size: 10,
+                      ),
 
+
+
+                      Expanded(
+                        child: Text(
+                          "${restaurant.address}, ${restaurant.city}",
+                          style: GoogleFonts.inter(
+                            color: Color(0xFF666666),
+                            fontSize: 9,
+                            fontWeight: .w500,
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  Text(
+                    "${restaurant.cuisines.first.name} • ₹${restaurant.averagePricePerPerson} for two",
+                    style: GoogleFonts.inter(
+                      color: Color(0xFF666666),
+                      fontSize: 9,
+                      fontWeight: .w500,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+
+                  Row(
+                    children: [
                       const Icon(Icons.star, color: Colors.green, size: 14),
 
                       const SizedBox(width: 3),
@@ -155,7 +197,7 @@ class RestaurantCard extends StatelessWidget {
                         text: TextSpan(
                           text: restaurant.rating.toStringAsFixed(1),
                           style: GoogleFonts.inter(
-                            fontSize: 11,
+                            fontSize: 9,
                             fontWeight: .w500,
                             color: Color(0xFF000000),
                           ),
@@ -163,7 +205,7 @@ class RestaurantCard extends StatelessWidget {
                             TextSpan(
                               text: " (${restaurant.reviews.length}) ",
                               style: GoogleFonts.inter(
-                                fontSize: 11,
+                                fontSize: 9,
                                 fontWeight: .w500,
                                 color: const Color(0xFF999999),
                               ),
@@ -174,105 +216,6 @@ class RestaurantCard extends StatelessWidget {
                     ],
                   ),
 
-                  const SizedBox(height: 8),
-
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.location_on_outlined,
-                        color: Colors.redAccent,
-                        size: 14,
-                      ),
-
-                      const SizedBox(width: 4),
-
-                      Expanded(
-                        child: Text(
-                          "${restaurant.address}, ${restaurant.city}",
-                          style: GoogleFonts.inter(
-                            color: Color(0xFF666666),
-                            fontSize: 12,
-                            fontWeight: .w500,
-                          ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  const SizedBox(height: 6),
-
-                  Text(
-                    "${restaurant.cuisines.map((e) => e.name).join(" • ")} • ₹${restaurant.averagePricePerPerson} for two",
-                    style: GoogleFonts.inter(
-                      color: Color(0xFF666666),
-                      fontSize: 12,
-                      fontWeight: .w500,
-                    ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-
-                  const SizedBox(height: 2),
-                  const Divider(
-                    color: Color(0xFFF2F2F2),
-                    indent: 10,
-                    endIndent: 10,
-                  ),
-
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: restaurant.offers.map((offer) {
-                        return Container(
-                          margin: const EdgeInsets.only(right: 10),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 14,
-                            vertical: 10,
-                          ),
-                          decoration: BoxDecoration(
-                            color: const Color(0xFFFDF1F1),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                offer.offerTiming,
-                                style: GoogleFonts.inter(
-                                    color: Color(0xFF666666),
-                                    fontSize: 10,
-                                    fontWeight: .w500
-                                ),
-                              ),
-
-                              const SizedBox(height: 4),
-
-                             RichText(text:  TextSpan(
-                               text:  offer.offerDiscount,
-                                children: [TextSpan(
-                                  text: " OFF",
-                                  style: GoogleFonts.inter(
-                                      color: Color(0xFFF12535),
-                                      fontSize: 10,
-                                      fontWeight: .w500
-                                  )
-                                )],
-                                style: GoogleFonts.inter(
-                                    color: Color(0xFFF12535),
-                                    fontSize: 14,
-                                    fontWeight: .w500
-                                ),
-                              ),
-
-                             )
-                            ],
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                  ),
                 ],
               ),
             ),

@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:hoppiez/presentation/screens/home_screen/home_screen_bindings.dart';
 import 'package:hoppiez/presentation/screens/home_screen/home_screen_view.dart';
+import 'package:hoppiez/presentation/screens/map_view/map_screen_bindings.dart';
+import 'package:hoppiez/presentation/screens/map_view/map_screen_view.dart';
 import 'package:hoppiez/presentation/screens/splash_screen/splash_screen_bindings.dart';
 import 'package:hoppiez/presentation/screens/splash_screen/splash_screen_view.dart';
 
@@ -9,6 +11,7 @@ class Navigation {
 
   static const String splashScreen = "/splash_screen_view";
   static const String homeScreen = "/home_screen_view";
+  static const String mapScreen= "/map_screen_view";
 
   static final List<GetPage> getPages = [
     GetPage(
@@ -19,6 +22,12 @@ class Navigation {
       name: homeScreen,
       page: () => HomeScreenView(),
       binding: HomeScreenBindings(),
+      transition: Transition.downToUp,
+      transitionDuration: const Duration(microseconds: 200)
+    ),GetPage(
+      name: mapScreen,
+      page: () => MapScreenView(),
+      binding: MapScreenBindings(),
       transition: Transition.downToUp,
       transitionDuration: const Duration(microseconds: 200)
     ),

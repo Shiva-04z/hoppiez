@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../../data/local/dummy/mood_store.dart';
+import '../../../../../data/local/dummy/mood_store.dart';
 import 'mood_card.dart';
 
 class MoodGrid extends StatelessWidget {

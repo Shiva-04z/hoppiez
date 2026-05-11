@@ -33,6 +33,7 @@ class SelectableFilterCard extends StatelessWidget {
       onDeleted: isApplied
           ? () {
         controller.selectedFilters.remove(title);
+        controller.applyFilters();
       }
           : null,
 

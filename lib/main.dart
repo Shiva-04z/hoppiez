@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hoppiez/data/local/dummy/restaurant_store.dart';
 import 'package:hoppiez/dining_app.dart';
 
-void main() {
-  runApp(const DiningApp());
+void main() async {
+  try {
+    runApp(const DiningApp());
+  } catch (e) {
+    debugPrint(e.toString());
+  }
 }
-
-
-
 

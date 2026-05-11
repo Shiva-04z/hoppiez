@@ -3,9 +3,22 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hoppiez/presentation/screens/home_screen/home_screen_controller.dart';
+import 'package:hoppiez/presentation/screens/home_screen/widgets/bottom_sheets/location_bottom_sheet.dart';
+
+import 'bottom_sheets/search_bottom_sheet.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
+
+  void showLocationSheet() {
+    Get.bottomSheet(
+      const LocationBottomSheet(),
+      isDismissible: false,
+      isScrollControlled: true,
+    );
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -31,42 +44,48 @@ class HomeAppBar extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: SvgPicture.asset("assets/icons/location.svg"),
                       ),
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      InkWell(
+                        onTap: () {
+                          controller.searchController.clear();
+                          showLocationSheet();
+                        },
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
 
-                        children: [
-                          Row(
-                            children: [
-                              Obx(
-                                () => Text(
-                                  controller.address.value.split(",")[0],
+                          children: [
+                            Row(
+                              children: [
+                                Obx(
+                                  () => Text(
+                                    controller.address.value.split(",")[0],
 
-                                  style: const TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w600,
+                                    style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
                                 ),
-                              ),
 
-                              const Icon(
-                                Icons.arrow_drop_down_sharp,
-                                color: Colors.red,
-                              ),
-                            ],
-                          ),
+                                const Icon(
+                                  Icons.arrow_drop_down_sharp,
+                                  color: Colors.red,
+                                ),
+                              ],
+                            ),
 
-                          Obx(
-                            () => Text(
-                              controller.address.value.split(",")[1],
+                            Obx(
+                              () => Text(
+                                controller.address.value.split(",")[1],
 
-                              style: const TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                       Expanded(child: SizedBox()),
                       Padding(
@@ -74,9 +93,9 @@ class HomeAppBar extends StatelessWidget {
                         child: CircleAvatar(
                           radius: 20,
                           backgroundColor: Color(0x86FA8B8B),
-                          child:SvgPicture.asset("assets/icons/user.svg") ,
+                          child: SvgPicture.asset("assets/icons/user.svg"),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -97,12 +116,26 @@ class HomeAppBar extends StatelessWidget {
           child: TextFormField(
             controller: controller.searchController,
 
+            readOnly: true,
+            onTap: () {
+              controller.searchController.clear();
+              Get.bottomSheet(
+                const SearchBottomSheet(),
+                isScrollControlled: true,
+                isDismissible: false,
+                backgroundColor: Colors.transparent,
+              ).whenComplete((){controller.searchController.clear();});
+            },
+
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.white,
 
-              hintText: "Search city, area, or locality",
-              hintStyle: GoogleFonts.sen(fontSize: 14,color: Color(0xFFA9ABB4)),
+              hintText: "Search dishes, restaurants.",
+              hintStyle: GoogleFonts.sen(
+                fontSize: 14,
+                color: Color(0xFFA9ABB4),
+              ),
 
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
@@ -110,20 +143,21 @@ class HomeAppBar extends StatelessWidget {
                 borderSide: BorderSide(color: Colors.grey.shade300),
               ),
 
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16),
-
-                borderSide: const BorderSide(color: Colors.red),
-              ),
-
               prefixIcon: IconButton(
                 onPressed: () {},
 
                 icon: SvgPicture.asset("assets/icons/search.svg"),
               ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16),
+
+                borderSide: BorderSide(color: Colors.grey.shade300),
+              ),
 
               suffixIcon: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.goToMap();
+                },
 
                 icon: SvgPicture.asset("assets/icons/map_pin.svg"),
               ),

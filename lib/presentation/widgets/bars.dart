@@ -10,7 +10,7 @@ class Bars {
     Get.snackbar(
       title,
       message ?? "",
-      backgroundColor: Color(0xFF00FF00),
+      backgroundColor: Color(0xFF008300),
       colorText: Color(0xFFFFFFFF),
     );
   }
@@ -20,7 +20,7 @@ class Bars {
     Get.snackbar(
       title,
       message ?? "",
-      backgroundColor: Color(0xFFFFFF00),
+      backgroundColor: Color(0xFFFFBD22),
       colorText: Color(0xFFFFFFFF),
     );
   }
@@ -30,7 +30,7 @@ class Bars {
     Get.snackbar(
       title,
       message ?? "",
-      backgroundColor: Color(0xFFFF0000),
+      backgroundColor: Color(0xFFB10000),
       colorText: Color(0xFFFFFFFF),
     );
   }

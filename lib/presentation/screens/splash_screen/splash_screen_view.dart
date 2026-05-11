@@ -12,7 +12,7 @@ class SplashScreenView extends GetView<SplashScreenController> {
     return Scaffold(
       body: Center(
         child: FadeIn(
-          duration: const Duration(seconds: 2),
+          duration: const Duration(milliseconds: 200),
           child: Text(
             controller.title,
             style: GoogleFonts.fraunces(
