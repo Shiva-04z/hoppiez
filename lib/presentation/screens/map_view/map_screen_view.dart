@@ -14,52 +14,80 @@ class MapScreenView extends GetView<MapScreenController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Obx(() {
-        if (controller.isLoading.value) {
-          return const Center(child: CircularProgressIndicator());
-        }
-
-        return Stack(
+      body: Stack(
           children: [
             FlutterMap(
-              options: MapOptions(
-                initialCenter: controller.currentPosition.value,
-                initialZoom: 15,
+                mapController: controller.mapController,
+                options: MapOptions(
+                  initialCenter: controller.currentPosition.value,
+                  initialZoom: 15,
 
-                interactionOptions: const InteractionOptions(
-                  flags: InteractiveFlag.all,
+                  interactionOptions: const InteractionOptions(
+                    flags: InteractiveFlag.all,
+                  ),
                 ),
-              ),
-              children: [
-                TileLayer(
-                  urlTemplate:
-                      "https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",
-                  subdomains: ['a', 'b', 'c'],
-                  userAgentPackageName: 'com.shivalik.hoppiez',
-                ),
+                children: [
+                  TileLayer(
+                    urlTemplate:
+                        "https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",
+                    subdomains: ['a', 'b', 'c'],
+                    userAgentPackageName: 'com.shivalik.hoppiez',
+                  ),
 
-                MarkerLayer(
-                  markers: [
-                    Marker(
-                      point: controller.currentPosition.value,
-                      width: 50,
-                      height: 50,
-                      child: const Icon(
-                        Icons.location_pin,
-                        size: 40,
-                        color: Colors.red,
+                Obx(()=>  MarkerLayer(
+                    markers: [
+                      Marker(
+                        point: controller.currentPosition.value,
+                        width: 40,
+                        height: 40,
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            // 🔵 Outer pulse / glow
+                            Container(
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.blue.withOpacity(0.2),
+                              ),
+                            ),
+
+                            // ⚪ White border
+                            Container(
+                              width: 18,
+                              height: 18,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white,
+                              ),
+                            ),
+
+                            // 🔵 Inner blue dot
+                            Container(
+                              width: 12,
+                              height: 12,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.blue,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                    ],
+                  )),
+                ],
+              ),
+
 
             Positioned(
               top: 60,
               left: 24,
               child: InkWell(
-                onTap: (){Get.back();},
+                onTap: () {
+                  Get.back();
+                },
                 child: CircleAvatar(
                   backgroundColor: Colors.white,
                   radius: 18.5,
@@ -97,8 +125,7 @@ class MapScreenView extends GetView<MapScreenController> {
               ),
             ),
           ],
-        );
-      }),
+        )
     );
   }
 }
