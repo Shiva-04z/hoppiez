@@ -208,7 +208,7 @@ class RestaurantCard extends StatelessWidget {
                     const SizedBox(height: 6),
 
                     Text(
-                      "${restaurant.cuisines.map((e) => e.name).join(" • ")} • ₹${restaurant.averagePricePerPerson} for two",
+                      "${restaurant.cuisines.map((e) => e.name).join(" • ")} • ₹${restaurant.averagePricePerPerson*2} for two",
                       style: GoogleFonts.inter(
                         color: Color(0xFF666666),
                         fontSize: 12,

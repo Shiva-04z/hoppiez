@@ -15,10 +15,14 @@ import 'package:hoppiez/presentation/widgets/bars.dart';
 
 class MapScreenController extends GetxController {
   final mapController = MapController();
-
+late Restaurant? restaurant;
   final LatLng fallbackLocation = const LatLng(28.6139, 77.2090);
 
   Rx<LatLng> currentPosition = const LatLng(
+    28.6139,
+    77.2090,
+  ).obs;
+  Rx<LatLng> theMainRestaurant = const LatLng(
     28.6139,
     77.2090,
   ).obs;
@@ -34,6 +38,16 @@ class MapScreenController extends GetxController {
     super.onInit();
 
     loadRestaurants();
+
+    if (Get.arguments != null) {
+      restaurant = Get.arguments as Restaurant;
+
+      final lat = restaurant!.coordinates[0];
+      final lng = restaurant!.coordinates[1];
+
+      theMainRestaurant.value = LatLng(lat, lng);
+    }
+
     getCurrentLocation();
   }
 
@@ -80,7 +94,16 @@ class MapScreenController extends GetxController {
       onMapReady();
 
       if (isMapReady.value) {
-        animateToLocation(currentPosition.value);
+        if (restaurant != null) {
+          animateToLocation(
+            theMainRestaurant.value,
+            zoom: 17,
+          );
+        } else {
+          animateToLocation(
+            currentPosition.value,
+          );
+        }
       }
     } catch (e) {
       debugPrint(e.toString());

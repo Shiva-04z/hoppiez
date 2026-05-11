@@ -47,14 +47,6 @@ class FilterRow extends StatelessWidget {
                   ),
                 ),
               ),
-              ...controller.filterOptions.map(
-                (e) => Obx(
-                  () => SelectableFilterCard(
-                    title: e,
-                    isApplied: controller.selectedFilters.contains(e),
-                  ),
-                ),
-              ),
               Obx(
                 () => BuildDropdownChip(
                   value: controller.selectedPrice.isEmpty
@@ -64,6 +56,7 @@ class FilterRow extends StatelessWidget {
                   onSelected: controller.setPrice,
                 ),
               ),
+
               Obx(
                 () => BuildDropdownChip(
                   value: controller.selectedType.isEmpty
@@ -89,6 +82,14 @@ class FilterRow extends StatelessWidget {
                       : controller.selectedSort.value,
                   items: controller.sortOptions,
                   onSelected: controller.setSort,
+                ),
+              ),
+              ...controller.filterOptions.map(
+                    (e) => Obx(
+                      () => SelectableFilterCard(
+                    title: e,
+                    isApplied: controller.selectedFilters.contains(e),
+                  ),
                 ),
               ),
 

@@ -59,13 +59,26 @@ class ReviewCard extends StatelessWidget {
             SingleChildScrollView(
               scrollDirection: .horizontal,
               child: Row(
-                children: review.images
-                    .map((i) => SizedBox(
-                  width: 100,
-                  height: 101,
-                    child: Image.asset(i)))
-                    .toList(),
-              ),
+            children: review.images
+                .map(
+                (i) => Card(
+      elevation: 3,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: Image.asset(
+          i,
+          width: 101,
+          height: 100,
+          fit: BoxFit.cover,
+        ),
+      ),
+    ),
+    )
+        .toList(),
+    ),
             ),
           ],
         ),

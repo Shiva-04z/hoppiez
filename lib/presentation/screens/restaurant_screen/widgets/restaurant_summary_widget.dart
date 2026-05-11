@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:hoppiez/core/navigation/navigation.dart';
 
 import 'package:hoppiez/presentation/screens/restaurant_screen/restaurant_screen_controller.dart';
+
+import '../../../widgets/bars.dart';
 
 class RestaurantSummaryWidget extends StatelessWidget {
   const RestaurantSummaryWidget({super.key});
@@ -12,7 +15,7 @@ class RestaurantSummaryWidget extends StatelessWidget {
     final controller = Get.find<RestaurantScreenController>();
     final restaurant = controller.restaurant;
 
-    return  Card(
+    return Card(
       elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
       child: Padding(
@@ -85,7 +88,7 @@ class RestaurantSummaryWidget extends StatelessWidget {
                         ),
 
                         Text(
-                        "Opens at 6:30 PM",
+                          "Opens at 6:30 PM",
                           style: const TextStyle(
                             fontSize: 12,
                             color: Color(0xFF000000),
@@ -115,7 +118,12 @@ class RestaurantSummaryWidget extends StatelessWidget {
               spacing: 10,
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Get.offNamed(
+                      Navigation.mapScreen,
+                      arguments: restaurant,
+                    );
+                  },
                   child: Container(
                     height: 27,
                     width: 99,
@@ -146,7 +154,9 @@ class RestaurantSummaryWidget extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Bars.showSuccessBar("Call pressed", "Should make a call");
+                  },
                   child: Container(
                     height: 27,
                     width: 63,

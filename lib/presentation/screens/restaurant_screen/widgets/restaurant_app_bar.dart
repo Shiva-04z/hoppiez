@@ -9,69 +9,107 @@ class RestaurantAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<RestaurantScreenController>();
-    return  SliverAppBar(
-      expandedHeight: 378,
-      leading: SizedBox(),
-      flexibleSpace: FlexibleSpaceBar(
-        background: Stack(
-          children: [
-            SizedBox(
-              height: 418,
-              child: Image.asset(
-                controller.restaurant.images.first,
-                fit: BoxFit.fitHeight,
-              ),
-            ),
-            Positioned(
-              bottom: 16,
-              left: 16,
-              right: 16,
 
-              child: SizedBox(
-                width: 356,
-                height: 189,
-                child: const RestaurantSummaryWidget(),
-              ),
-            ),
-            Positioned(
-              top: 36,
-              left: 24,
-              child: CircleAvatar(
-                backgroundColor: Colors.white,
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.arrow_back, color: Colors.black),
+    return SliverAppBar(
+      pinned: true,
+      expandedHeight: 378,
+      elevation: 0,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+
+      flexibleSpace: LayoutBuilder(
+        builder: (context, constraints) {
+          final top = constraints.biggest.height;
+          final isCollapsed = top <= kToolbarHeight + 40;
+
+          return Stack(
+            children: [
+              FlexibleSpaceBar(
+                centerTitle: false,
+
+                title: isCollapsed
+                    ? Text(
+                        controller.restaurant.name,
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 18,
+                        ),
+                      )
+                    : null,
+
+                background: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    Image.asset(
+                      controller.restaurant.images.first,
+                      fit: BoxFit.cover,
+                    ),
+
+                    Positioned(
+                      bottom: 16,
+                      left: 16,
+                      right: 16,
+                      child: SizedBox(
+                        height: 189,
+                        child: const RestaurantSummaryWidget(),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ),
-            Positioned(
-              top: 36,
-              right: 74,
-              child: CircleAvatar(
-                backgroundColor: Colors.white,
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.favorite_border_outlined,
-                    color: Colors.black,
+
+              Positioned(
+                top: MediaQuery.of(context).padding.top + 4,
+                left: 12,
+                child: isCollapsed
+                    ? IconButton(
+                        onPressed: () => Get.back(),
+                        icon: const Icon(Icons.arrow_back, color: Colors.black),
+                      )
+                    : CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: IconButton(
+                          onPressed: () => Get.back(),
+                          icon: const Icon(
+                            Icons.arrow_back,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+              ),
+
+              Positioned(
+                top: MediaQuery.of(context).padding.top + 4,
+                right: 74,
+                child: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.favorite_border_outlined,
+                      color: Colors.black,
+                    ),
                   ),
                 ),
               ),
-            ),
-            Positioned(
-              top: 36,
-              right: 24,
-              child: CircleAvatar(
-                backgroundColor: Colors.white,
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.ios_share, color: Colors.black),
+
+              Positioned(
+                top: MediaQuery.of(context).padding.top + 4,
+                right: 16,
+                child: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.ios_share, color: Colors.black),
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
+            ],
+          );
+        },
       ),
+      leading: SizedBox(),
     );
+
   }
 }

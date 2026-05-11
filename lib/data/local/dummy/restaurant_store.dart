@@ -65,8 +65,7 @@ class RestaurantStore extends GetxController {
     "assets/images/dishes/dish2.webp",
     "assets/images/dishes/dish3.webp",
     "assets/images/dishes/dish4.webp",
-    "assets/images/dishes/dish5.webp",
-    "assets/images/dishes/dish6.webp",
+
   ];
 
   static const List<String> _reviewerImages = [
@@ -159,25 +158,25 @@ class RestaurantStore extends GetxController {
     Cuisine(
       id: "chinese",
       name: "Chinese",
-      image: "assets/images/dishes/dish3.webp",
+      image: "assets/images/cuisine/dish3.webp",
       color: Color(0xFFF3BEFF),
     ),
     Cuisine(
       id: "italian",
       name: "Italian",
-      image: "assets/images/dishes/dish2.webp",
+      image: "assets/images/cuisine/dish2.webp",
       color: Color(0xFFFFDFBE),
     ),
     Cuisine(
       id: "thai",
       name: "Thai",
-      image: "assets/images/dishes/dish5.webp",
+      image: "assets/images/cuisine/dish5.webp",
       color: Color(0xFFBEFFF0),
     ),
     Cuisine(
       id: "mexican",
       name: "Mexican",
-      image: "assets/images/dishes/dish6.webp",
+      image: "assets/images/cuisine/dish6.webp",
       color: Color(0xFFF3BEFF),
     ),
   ];

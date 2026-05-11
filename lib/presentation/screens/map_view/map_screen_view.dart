@@ -38,6 +38,40 @@ class MapScreenView extends GetView<MapScreenController> {
                   Obx(
                         () => MarkerLayer(
                       markers: [
+                        if (controller.restaurant != null)
+                          Marker(
+                            point:controller.theMainRestaurant.value,
+                            width: 120,
+                            height: 130,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 12,
+                                    vertical: 6,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Colors.black,
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Text(
+                                   controller.restaurant!.name,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+
+                                const Icon(
+                                  Icons.location_on,
+                                  color: Colors.black,
+                                  size: 40,
+                                ),
+                              ],
+                            ),
+                          ),
                         Marker(
                           point: controller.currentPosition.value,
                           width: 40,
