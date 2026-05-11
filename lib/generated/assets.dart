@@ -13,13 +13,19 @@ class Assets {
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  final SvgGenImage call = const SvgGenImage('assets/icons/call.svg');
   final SvgGenImage decoration = const SvgGenImage(
-    'assets/icons/decoration.svg',
-  );
+      'assets/icons/decoration.svg');
+  final AssetGenImage directionsPng = const AssetGenImage(
+      'assets/icons/directions.png');
+  final SvgGenImage directionsSvg = const SvgGenImage(
+      'assets/icons/directions.svg');
+  final SvgGenImage discount = const SvgGenImage('assets/icons/discount.svg');
   final SvgGenImage filter = const SvgGenImage('assets/icons/filter.svg');
   final SvgGenImage location = const SvgGenImage('assets/icons/location.svg');
   final SvgGenImage mapPin = const SvgGenImage('assets/icons/map_pin.svg');
   final SvgGenImage search = const SvgGenImage('assets/icons/search.svg');
+  final SvgGenImage star = const SvgGenImage('assets/icons/star.svg');
   final SvgGenImage user = const SvgGenImage('assets/icons/user.svg');
 }
 
@@ -29,99 +35,92 @@ class $AssetsImagesGen {
   final $AssetsDishesGen dishes = const $AssetsDishesGen();
   final $AssetsMenusGen menus = const $AssetsMenusGen();
   final $AssetsMoodsGen moods = const $AssetsMoodsGen();
-  final $AssetsRestaurentsGen restaurents = const $AssetsRestaurentsGen();
+  final $AssetsRestaurantsGen restaurants = const $AssetsRestaurantsGen();
+  final $AssetsUsersGen users = const $AssetsUsersGen();
 }
 
 class $AssetsMoodsGen {
   const $AssetsMoodsGen();
 
   final AssetGenImage burger = const AssetGenImage(
-    'assets/images/moods/burger.webp',
-  );
+      'assets/images/moods/burger.webp');
   final AssetGenImage champagne = const AssetGenImage(
-    'assets/images/moods/champagne.webp',
-  );
+      'assets/images/moods/champagne.webp');
   final AssetGenImage north = const AssetGenImage(
-    'assets/images/moods/north.webp',
-  );
+      'assets/images/moods/north.webp');
   final AssetGenImage pizza = const AssetGenImage(
-    'assets/images/moods/pizza.webp',
-  );
+      'assets/images/moods/pizza.webp');
   final AssetGenImage pizza2 = const AssetGenImage(
-    'assets/images/moods/pizza2.webp',
-  );
+      'assets/images/moods/pizza2.webp');
   final AssetGenImage south = const AssetGenImage(
-    'assets/images/moods/south.webp',
-  );
+      'assets/images/moods/south.webp');
+}
+
+class $AssetsUsersGen {
+  const $AssetsUsersGen();
+
+  final AssetGenImage user1 = const AssetGenImage(
+      'assets/images/users/user1.webp');
+  final AssetGenImage user2 = const AssetGenImage(
+      'assets/images/users/user2.webp');
+  final AssetGenImage user3 = const AssetGenImage(
+      'assets/images/users/user3.webp');
+  final AssetGenImage user4 = const AssetGenImage(
+      'assets/images/users/user4.webp');
+  final AssetGenImage user5 = const AssetGenImage(
+      'assets/images/users/user5.webp');
 }
 
 class $AssetsMenusGen {
   const $AssetsMenusGen();
 
   final AssetGenImage menu1 = const AssetGenImage(
-    'assets/images/menus/menu1.webp',
-  );
+      'assets/images/menus/menu1.webp');
   final AssetGenImage menu2 = const AssetGenImage(
-    'assets/images/menus/menu2.webp',
-  );
+      'assets/images/menus/menu2.webp');
   final AssetGenImage menu3 = const AssetGenImage(
-    'assets/images/menus/menu3.webp',
-  );
-  final AssetGenImage menu4 = const AssetGenImage(
-    'assets/images/menus/menu4.webp',
-  );
+      'assets/images/menus/menu3.webp');
 }
 
 class $AssetsDishesGen {
   const $AssetsDishesGen();
 
   final AssetGenImage dish1 = const AssetGenImage(
-    'assets/images/dishes/dish1.webp',
-  );
+      'assets/images/dishes/dish1.webp');
   final AssetGenImage dish2 = const AssetGenImage(
-    'assets/images/dishes/dish2.webp',
-  );
+      'assets/images/dishes/dish2.webp');
   final AssetGenImage dish3 = const AssetGenImage(
-    'assets/images/dishes/dish3.webp',
-  );
+      'assets/images/dishes/dish3.webp');
   final AssetGenImage dish4 = const AssetGenImage(
-    'assets/images/dishes/dish4.webp',
-  );
+      'assets/images/dishes/dish4.webp');
   final AssetGenImage dish5 = const AssetGenImage(
-    'assets/images/dishes/dish5.webp',
-  );
+      'assets/images/dishes/dish5.webp');
   final AssetGenImage dish6 = const AssetGenImage(
-    'assets/images/dishes/dish6.webp',
-  );
+      'assets/images/dishes/dish6.webp');
 }
 
-class $AssetsRestaurentsGen {
-  const $AssetsRestaurentsGen();
+class $AssetsRestaurantsGen {
+  const $AssetsRestaurantsGen();
 
-  final AssetGenImage restaurent1 = const AssetGenImage(
-    'assets/images/restaurents/restaurant1.webp',
-  );
-  final AssetGenImage restaurent2 = const AssetGenImage(
-    'assets/images/restaurents/restaurant2.webp',
-  );
-  final AssetGenImage restaurent3 = const AssetGenImage(
-    'assets/images/restaurents/restaurant3.webp',
-  );
-  final AssetGenImage restaurent4 = const AssetGenImage(
-    'assets/images/restaurents/restaurant4.webp',
-  );
-  final AssetGenImage restaurent5 = const AssetGenImage(
-    'assets/images/restaurents/restaurant5.webp',
-  );
-  final AssetGenImage restaurent6 = const AssetGenImage(
-    'assets/images/restaurents/restaurant6.webp',
-  );
+  final AssetGenImage restaurant1 = const AssetGenImage(
+      'assets/images/restaurants/restaurant1.webp');
+  final AssetGenImage restaurant2 = const AssetGenImage(
+      'assets/images/restaurants/restaurant2.webp');
+  final AssetGenImage restaurant3 = const AssetGenImage(
+      'assets/images/restaurants/restaurant3.webp');
+  final AssetGenImage restaurant4 = const AssetGenImage(
+      'assets/images/restaurants/restaurant4.webp');
+  final AssetGenImage restaurant5 = const AssetGenImage(
+      'assets/images/restaurants/restaurant5.webp');
+  final AssetGenImage restaurant6 = const AssetGenImage(
+      'assets/images/restaurants/restaurant6.webp');
 }
 
 class AssetGenImage {
   const AssetGenImage(this._assetName, {this.size, this.flavors = const {}});
 
   final String _assetName;
+
 
   final Size? size;
   final Set<String> flavors;
@@ -179,8 +178,15 @@ class AssetGenImage {
     );
   }
 
-  ImageProvider provider({AssetBundle? bundle, String? package}) {
-    return AssetImage(_assetName, bundle: bundle, package: package);
+  ImageProvider provider({
+    AssetBundle? bundle,
+    String? package,
+  }) {
+    return AssetImage(
+      _assetName,
+      bundle: bundle,
+      package: package,
+    );
   }
 
   Widget custom({
@@ -252,3 +258,4 @@ class SvgGenImage {
 
   String get keyName => _assetName;
 }
+

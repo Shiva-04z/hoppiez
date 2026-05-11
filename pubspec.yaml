@@ -71,6 +71,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/moods/
+    - assets/images/users/
     - assets/images/menus/
     - assets/images/dishes/
     - assets/images/restaurants/
